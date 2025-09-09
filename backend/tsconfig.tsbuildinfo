@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/mapsroutes/maps.ts","./src/middlewares/authmidd.ts","./src/secretpass/sec.ts","./src/types/express.d.ts","./src/userroutes/user.ts"],"version":"5.8.3"}

@@ -23,21 +23,11 @@ function latLonToTile(lat:number, lon : number, zoom : number) {
 
 
 /// this route is for the offline map purposes
-router.get("/maps/:place",authMiddleware,async(req:Request,res:Response)=>{
-  const id  = req.id;
+router.get("/maps/:place",async(req:Request,res:Response)=>{
+  
   const place = req.params.place
   const zoom:number=12;
-  const findu = await prisma.user.findFirst({
-    where:{
-        id
-    }
-  })
-
-  if(!findu){
-    return res.status(Status.NotFound).json({
-        msg:"not a valid user"
-    })
-  }
+ 
 
   const response = await axios.get(`https://nominatim.openstreetmap.org/search?q=${place}&format=json&limit=1&polygon_geojson=1&addressdetails=1`,{
     headers:{
